@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">James Brewing Calculators</string>
+    <string name="abvogfg">ABV From OG and FG</string>
+    <string name="title">Brewing Calculators</string>
+    <string name="og">Original gravity</string>
+    <string name="fg">Final gravity</string>
+    <string name="result">"The ABV is "</string>
+    <string name="og_default">1.050</string>
+    <string name="fg_default">1.010</string>
+    <string name="decimal_point">.</string>
 </resources>
