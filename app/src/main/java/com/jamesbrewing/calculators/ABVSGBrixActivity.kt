@@ -11,15 +11,15 @@ import android.widget.NumberPicker
 import android.widget.TextView
 import kotlin.math.round
 
-class ABVOGFGActivity : AppCompatActivity() {
+class ABVSGBrixActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_abvogfgactivity)
+        setContentView(R.layout.activity_abvsgbrix)
 
         displayABV()
 
-        val ogText = findViewById<EditText>(R.id.editTextNumberDecimal)
-        ogText.addTextChangedListener(object : TextWatcher {
+        val sgText = findViewById<EditText>(R.id.editTextSG)
+        sgText.addTextChangedListener(object : TextWatcher {
 
             override fun afterTextChanged(s: Editable) {}
 
@@ -33,8 +33,8 @@ class ABVOGFGActivity : AppCompatActivity() {
             }
         })
 
-        val fgText = findViewById<EditText>(R.id.editTextNumberDecimal3)
-        fgText.addTextChangedListener(object : TextWatcher {
+        val brixText = findViewById<EditText>(R.id.editTextBrix)
+        brixText.addTextChangedListener(object : TextWatcher {
 
             override fun afterTextChanged(s: Editable) {}
 
@@ -49,18 +49,17 @@ class ABVOGFGActivity : AppCompatActivity() {
         })
     }
 
-    private fun abv(og: Double, fg: Double): String {
-        return String.format("%.1f", 100 * (og - fg) / 0.75)
+    private fun abv(sg: Double, brix: Double): String {
+        return String.format("%.1f", (1.646 * brix - 2.703 * (145-145/sg) - 1.794))
     }
 
     private fun displayABV() {
-        val ogText = findViewById<EditText>(R.id.editTextNumberDecimal)
-        val og = ogText.text.toString().toDouble()
-        val fgText = findViewById<EditText>(R.id.editTextNumberDecimal3)
-        val fg = fgText.text.toString().toDouble()
-        findViewById<TextView>(R.id.textView6).apply {
-            text = getString(R.string.result) + abv(og, fg) + "%"
+        val sgText = findViewById<EditText>(R.id.editTextSG)
+        val sg = sgText.text.toString().toDouble()
+        val brixText = findViewById<EditText>(R.id.editTextBrix)
+        val brix = brixText.text.toString().toDouble()
+        findViewById<TextView>(R.id.textViewABV).apply {
+            text = getString(R.string.result) + abv(sg, brix) + "%"
         }
     }
 }
-

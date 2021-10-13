@@ -23,4 +23,10 @@ class MainActivity : AppCompatActivity() {
         }
         startActivity(intent)
     }
+
+    fun calcABVSGBrix(view: View) {
+        val intent = Intent(this, ABVSGBrixActivity::class.java).apply {
+        }
+        startActivity(intent)
+    }
 }

@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JamesBrewingCalculators">
         <activity
+            android:name=".StrikeWaterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ABVSGBrixActivity"
+            android:exported="false" />
+        <activity
             android:name=".ABVOGFGActivity"
             android:exported="true" />
         <activity
