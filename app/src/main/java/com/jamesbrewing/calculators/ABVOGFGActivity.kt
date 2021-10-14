@@ -1,24 +1,20 @@
 package com.jamesbrewing.calculators
 
 import androidx.appcompat.app.AppCompatActivity
-import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.EditText
-import android.widget.LinearLayout
-import android.widget.NumberPicker
 import android.widget.TextView
-import kotlin.math.round
 
 class ABVOGFGActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_abvogfgactivity)
+        setContentView(R.layout.activity_abvogfg)
 
         displayABV()
 
-        val ogText = findViewById<EditText>(R.id.editTextNumberDecimal)
+        val ogText = findViewById<EditText>(R.id.editTextNumberOG)
         ogText.addTextChangedListener(object : TextWatcher {
 
             override fun afterTextChanged(s: Editable) {}
@@ -33,7 +29,7 @@ class ABVOGFGActivity : AppCompatActivity() {
             }
         })
 
-        val fgText = findViewById<EditText>(R.id.editTextNumberDecimal3)
+        val fgText = findViewById<EditText>(R.id.editTextNumberFG)
         fgText.addTextChangedListener(object : TextWatcher {
 
             override fun afterTextChanged(s: Editable) {}
@@ -54,12 +50,12 @@ class ABVOGFGActivity : AppCompatActivity() {
     }
 
     private fun displayABV() {
-        val ogText = findViewById<EditText>(R.id.editTextNumberDecimal)
+        val ogText = findViewById<EditText>(R.id.editTextNumberOG)
         val og = ogText.text.toString().toDouble()
-        val fgText = findViewById<EditText>(R.id.editTextNumberDecimal3)
+        val fgText = findViewById<EditText>(R.id.editTextNumberFG)
         val fg = fgText.text.toString().toDouble()
-        findViewById<TextView>(R.id.textView6).apply {
-            text = getString(R.string.result) + abv(og, fg) + "%"
+        findViewById<TextView>(R.id.textViewABV).apply {
+            text = abv(og, fg)
         }
     }
 }

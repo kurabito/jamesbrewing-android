@@ -59,7 +59,7 @@ class ABVSGBrixActivity : AppCompatActivity() {
         val brixText = findViewById<EditText>(R.id.editTextBrix)
         val brix = brixText.text.toString().toDouble()
         findViewById<TextView>(R.id.textViewABV).apply {
-            text = getString(R.string.result) + abv(sg, brix) + "%"
+            text = abv(sg, brix)
         }
     }
 }
