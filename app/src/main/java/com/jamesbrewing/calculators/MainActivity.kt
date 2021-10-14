@@ -23,7 +23,12 @@ class MainActivity : AppCompatActivity() {
 
         val sgBrixButton: Button = findViewById(R.id.buttonSGBrix)
         sgBrixButton.setOnClickListener {
-            calcABVOGFG(sgBrixButton)
+            calcABVSGBrix(sgBrixButton)
+        }
+
+        val strikeWaterButton: Button = findViewById(R.id.buttonStrikeWater)
+        strikeWaterButton.setOnClickListener {
+            calcStrikeWater(sgBrixButton)
         }
     }
 
@@ -40,6 +45,12 @@ class MainActivity : AppCompatActivity() {
 
     fun calcABVSGBrix(view: View) {
         val intent = Intent(this, ABVSGBrixActivity::class.java).apply {
+        }
+        startActivity(intent)
+    }
+
+    fun calcStrikeWater(view: View) {
+        val intent = Intent(this, StrikeWaterActivity::class.java).apply {
         }
         startActivity(intent)
     }

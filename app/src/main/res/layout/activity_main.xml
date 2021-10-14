@@ -44,4 +44,17 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonOGFG" />
+
+    <Button
+        android:id="@+id/buttonStrikeWater"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="106dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="106dp"
+        android:text="@string/strike_water"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonSGBrix" />
 </androidx.constraintlayout.widget.ConstraintLayout>

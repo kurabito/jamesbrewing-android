@@ -12,4 +12,12 @@
     <string name="sg">Specific Gravity</string>
     <string name="brix">Brix</string>
     <string name="brix_default">8.0</string>
+    <string name="strike_water">Strike Water Temperature</string>
+    <string name="grain">Grain Temperature</string>
+    <string name="target">Target Temperature</string>
+    <string name="ratio">Water to Grain Ratio</string>
+    <string name="strike_temp">Strike water temperature</string>
+    <string name="grain_default">50</string>
+    <string name="target_default">150</string>
+    <string name="ratio_default">1.4</string>
 </resources>

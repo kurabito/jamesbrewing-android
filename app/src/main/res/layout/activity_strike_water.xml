@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StrikeWaterActivity">
+
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="350dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/strike_water"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewGrain"
+        android:labelFor="@id/editTextGrain"
+        android:layout_width="300dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/grain"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitle" />
+
+    <EditText
+        android:id="@+id/editTextGrain"
+        android:layout_width="96dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="4dp"
+        android:inputType="numberDecimal"
+        android:text="@string/grain_default"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewGrain" />
+
+    <TextView
+        android:id="@+id/textViewTarget"
+        android:labelFor="@id/editTextTarget"
+        android:layout_width="300dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/target"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextGrain" />
+
+    <EditText
+        android:id="@+id/editTextTarget"
+        android:layout_width="96dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="4dp"
+        android:inputType="numberDecimal"
+        android:text="@string/target_default"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTarget" />
+
+    <TextView
+        android:id="@+id/textViewRatio"
+        android:labelFor="@id/editTextRatio"
+        android:layout_width="300dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="28dp"
+        android:text="@string/ratio"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTarget" />
+
+    <EditText
+        android:id="@+id/editTextRatio"
+        android:layout_width="96dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="4dp"
+        android:inputType="numberDecimal"
+        android:text="@string/ratio_default"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewRatio" />
+
+    <TextView
+        android:id="@+id/textViewStrikeTemp"
+        android:layout_width="300dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/strike_temp"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextRatio" />
+
+    <TextView
+        android:id="@+id/textViewTemp"
+        android:layout_width="300dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="4dp"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewStrikeTemp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
