@@ -1,5 +1,7 @@
 package com.jamesbrewing.calculators
 
+import android.content.res.ColorStateList
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Message
@@ -10,10 +12,15 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.core.text.isDigitsOnly
 
+private var defaultColors = ColorStateList.valueOf(Color.BLACK)
+
 class ABVOGFGActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_abvogfg)
+
+        val result = findViewById<TextView>(R.id.textViewResult)
+        defaultColors = result.textColors
 
         displayABV()
 
@@ -52,6 +59,7 @@ class ABVOGFGActivity : AppCompatActivity() {
 
     private fun invalidInput(result: TextView, abv: TextView, message: String) {
         result.text = message
+        result.setTextColor(Color.RED)
         abv.visibility = View.GONE
     }
 
@@ -84,8 +92,8 @@ class ABVOGFGActivity : AppCompatActivity() {
         }
 
         result.text = getString(R.string.abv)
+        result.setTextColor(defaultColors)
         abv.text = abv(og, fg) + getString(R.string.percent)
         abv.visibility = View.VISIBLE
     }
 }
-

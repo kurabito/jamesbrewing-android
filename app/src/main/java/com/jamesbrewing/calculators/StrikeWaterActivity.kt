@@ -2,6 +2,8 @@ package com.jamesbrewing.calculators
 
 import androidx.appcompat.app.AppCompatActivity
 import android.content.Intent
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -12,10 +14,15 @@ import android.widget.NumberPicker
 import android.widget.TextView
 import kotlin.math.round
 
+private var defaultColors = ColorStateList.valueOf(Color.BLACK)
+
 class StrikeWaterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_strike_water)
+
+        val result = findViewById<TextView>(R.id.textViewResult)
+        defaultColors = result.textColors
 
         displayTemp()
 
@@ -67,6 +74,7 @@ class StrikeWaterActivity : AppCompatActivity() {
 
     private fun invalidInput(result: TextView, temp: TextView, message: String) {
         result.text = message
+        result.setTextColor(Color.RED)
         temp.visibility = View.GONE
     }
 
@@ -115,6 +123,7 @@ class StrikeWaterActivity : AppCompatActivity() {
         else {}
 
         result.text = getString(R.string.strike_temp)
+        result.setTextColor(defaultColors)
         temp.text = strikeTemp(grain, target, ratio)
         temp.visibility = View.VISIBLE
     }

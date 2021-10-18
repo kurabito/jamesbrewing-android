@@ -2,6 +2,8 @@ package com.jamesbrewing.calculators
 
 import androidx.appcompat.app.AppCompatActivity
 import android.content.Intent
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -12,10 +14,15 @@ import android.widget.NumberPicker
 import android.widget.TextView
 import kotlin.math.round
 
+private var defaultColors = ColorStateList.valueOf(Color.BLACK)
+
 class ABVSGBrixActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_abvsgbrix)
+
+        val result = findViewById<TextView>(R.id.textViewResult)
+        defaultColors = result.textColors
 
         displayABV()
 
@@ -56,6 +63,7 @@ class ABVSGBrixActivity : AppCompatActivity() {
 
     private fun invalidInput(result: TextView, abv: TextView, message: String) {
         result.text = message
+        result.setTextColor(Color.RED)
         abv.visibility = View.GONE
     }
 
@@ -90,6 +98,7 @@ class ABVSGBrixActivity : AppCompatActivity() {
             }
 
         result.text = getString(R.string.abv)
+        result.setTextColor(defaultColors)
         abv.text = abv(sg, brix) + getString(R.string.percent)
         abv.visibility = View.VISIBLE
     }
