@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.View
 import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.NumberPicker
@@ -53,13 +54,44 @@ class ABVSGBrixActivity : AppCompatActivity() {
         return String.format("%.1f", (1.646 * brix - 2.703 * (145-145/sg) - 1.794))
     }
 
-    private fun displayABV() {
-        val sgText = findViewById<EditText>(R.id.editTextSG)
-        val sg = sgText.text.toString().toDouble()
-        val brixText = findViewById<EditText>(R.id.editTextBrix)
-        val brix = brixText.text.toString().toDouble()
-        findViewById<TextView>(R.id.textViewABV).apply {
-            text = abv(sg, brix)
-        }
+    private fun invalidInput(result: TextView, abv: TextView, message: String) {
+        result.text = message
+        abv.visibility = View.GONE
     }
+
+    private fun displayABV() {
+        val result = findViewById<TextView>(R.id.textViewResult)
+        val abv = findViewById<TextView>(R.id.textViewABV)
+
+        val sgText = findViewById<EditText>(R.id.editTextSG)
+        val sg : Double =
+            try {
+                sgText.text.toString().toDouble()
+            }
+            catch (e: NumberFormatException) {
+                invalidInput(result, abv, getString(R.string.sg_invalid))
+                return
+            }
+        if (sg == 0.0)
+        {
+            invalidInput(result, abv, getString(R.string.sg_invalid))
+            return
+        }
+        else {}
+
+        val brixText = findViewById<EditText>(R.id.editTextBrix)
+        val brix : Double =
+            try {
+                brixText.text.toString().toDouble()
+            }
+            catch (e: NumberFormatException) {
+                invalidInput(result, abv, getString(R.string.brix_invalid))
+                return
+            }
+
+        result.text = getString(R.string.abv)
+        abv.text = abv(sg, brix) + getString(R.string.percent)
+        abv.visibility = View.VISIBLE
+    }
+
 }

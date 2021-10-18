@@ -19,4 +19,12 @@
     <string name="grain_default">50</string>
     <string name="target_default">150</string>
     <string name="ratio_default">1.4</string>
+    <string name="og_invalid">Invalid OG</string>
+    <string name="fg_invalid">Invalid FG</string>
+    <string name="sg_invalid">Invalid SG</string>
+    <string name="brix_invalid">Invalid Brix</string>
+    <string name="percent">%</string>
+    <string name="grain_invalid">Invalid grain temperature</string>
+    <string name="target_invalid">Invalid target temperature</string>
+    <string name="ratio_invalid">Invalid ratio</string>
 </resources>
