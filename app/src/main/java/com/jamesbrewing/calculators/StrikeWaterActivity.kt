@@ -7,6 +7,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.MenuItem
 import android.view.View
 import android.widget.EditText
 import android.widget.LinearLayout
@@ -20,6 +21,10 @@ class StrikeWaterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_strike_water)
+
+        val actionBar = supportActionBar
+        actionBar!!.title = getString(R.string.app_name)
+        actionBar.setDisplayHomeAsUpEnabled(true)
 
         val result = findViewById<TextView>(R.id.textViewResult)
         defaultColors = result.textColors
@@ -70,6 +75,16 @@ class StrikeWaterActivity : AppCompatActivity() {
                 displayTemp()
             }
         })
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> {
+                finish()
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun invalidInput(result: TextView, temp: TextView, message: String) {

@@ -7,10 +7,15 @@ import android.os.Bundle
 import android.os.Message
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.MenuItem
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
 import androidx.core.text.isDigitsOnly
+import androidx.annotation.NonNull
+
+
+
 
 private var defaultColors = ColorStateList.valueOf(Color.BLACK)
 
@@ -18,6 +23,10 @@ class ABVOGFGActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_abvogfg)
+
+        val actionBar = supportActionBar
+        actionBar!!.title = getString(R.string.app_name)
+        actionBar.setDisplayHomeAsUpEnabled(true)
 
         val result = findViewById<TextView>(R.id.textViewResult)
         defaultColors = result.textColors
@@ -53,6 +62,16 @@ class ABVOGFGActivity : AppCompatActivity() {
                 displayABV()
             }
         })
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> {
+                finish()
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
 //    private fun String.isDigitsOnly() = all(Char::isDigit) && isNotEmpty()

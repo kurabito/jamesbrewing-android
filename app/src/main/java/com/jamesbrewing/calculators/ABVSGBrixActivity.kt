@@ -7,6 +7,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.MenuItem
 import android.view.View
 import android.widget.EditText
 import android.widget.LinearLayout
@@ -20,6 +21,10 @@ class ABVSGBrixActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_abvsgbrix)
+
+        val actionBar = supportActionBar
+        actionBar!!.title = getString(R.string.app_name)
+        actionBar.setDisplayHomeAsUpEnabled(true)
 
         val result = findViewById<TextView>(R.id.textViewResult)
         defaultColors = result.textColors
@@ -57,14 +62,24 @@ class ABVSGBrixActivity : AppCompatActivity() {
         })
     }
 
-    private fun abv(sg: Double, brix: Double): String {
-        return String.format("%.1f", (1.646 * brix - 2.703 * (145-145/sg) - 1.794))
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> {
+                finish()
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun invalidInput(result: TextView, abv: TextView, message: String) {
         result.text = message
         result.setTextColor(Color.RED)
         abv.visibility = View.GONE
+    }
+
+    private fun abv(sg: Double, brix: Double): String {
+        return String.format("%.1f", (1.646 * brix - 2.703 * (145-145/sg) - 1.794))
     }
 
     private fun displayABV() {
