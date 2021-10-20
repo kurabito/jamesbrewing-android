@@ -100,7 +100,6 @@ class ABVSGBrixActivity : AppCompatActivity() {
             invalidInput(result, abv, getString(R.string.sg_invalid))
             return
         }
-        else {}
 
         val brixText = findViewById<EditText>(R.id.editTextBrix)
         val brix : Double =

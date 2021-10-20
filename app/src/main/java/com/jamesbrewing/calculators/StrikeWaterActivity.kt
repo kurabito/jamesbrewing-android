@@ -135,7 +135,6 @@ class StrikeWaterActivity : AppCompatActivity() {
             invalidInput(result, temp, getString(R.string.ratio_invalid))
             return
         }
-        else {}
 
         result.text = getString(R.string.strike_temp)
         result.setTextColor(defaultColors)
